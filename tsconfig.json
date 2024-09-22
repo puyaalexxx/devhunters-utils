@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "outDir": "./dist",
     "target": "es2020",
-    "module": "esnext",
+    "module": "ESNext",
     "lib": [
       "dom",
       "esnext"
@@ -30,6 +30,10 @@
     "utils/**/*", // include .ts files from the src folder if you have one
     "dts-files/**/*.d.ts"
   ],
+  "tsc-alias": {
+    "resolveFullPaths": true,
+    "verbose": false
+  },
   "exclude": [
     "node_modules"
   ]

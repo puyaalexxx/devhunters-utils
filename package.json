@@ -1,11 +1,11 @@
 {
   "name": "devhunters-utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Utility functions for my plugins",
   "main": "dist/utils.js",
   "types": "dts-files/utils.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && node helpers/fix-js-imports.js && find dist -name '*.js' -exec terser {} --compress --mangle --output {} \\;",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
