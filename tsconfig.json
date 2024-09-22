@@ -21,9 +21,14 @@
     "sourceMap": false,
     "esModuleInterop": true,
   },
+  "typeRoots": [
+      "./node_modules/@types",
+      "./dts-files"
+    ],
   "include": [
     "*.ts", // include all .ts files in the root directory
-    "utils/**/*" // include .ts files from the src folder if you have one
+    "utils/**/*", // include .ts files from the src folder if you have one
+    "dts-files/**/*.d.ts"
   ],
   "exclude": [
     "node_modules"

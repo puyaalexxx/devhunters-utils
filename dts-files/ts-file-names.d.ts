@@ -1,0 +1,1 @@
+export declare function dhtuGetTsFileNamesFromPaths(allModules: Record<string, () => Promise<unknown>>): Record<string, string>;

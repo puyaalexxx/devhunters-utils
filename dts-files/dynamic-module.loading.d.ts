@@ -1,0 +1,1 @@
+export declare function dhtuLoadModule(modules: Record<string, () => Promise<unknown>>, fileName: string, fileExtension?: string): Promise<void>;
