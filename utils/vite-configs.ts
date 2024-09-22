@@ -17,7 +17,15 @@ export function dhtuGetViteConfigs(isDevelopmentEnv: boolean, tsFiles: Record<st
     let manualChunks = {};
     let cssCodeSplit = true;
     let entryFileNames: (chunkInfo: { name: string }) => string = () => "[name].js";
-    let assetFileNames: (assetInfo: { name: string }) => string = () => paths.assetFileNames + "/[name][extname]";
+    let assetFileNames = (assetInfo: { name: string; }) => {
+        if (assetInfo.name && assetInfo.name.endsWith(".css")) {
+            const fileName = assetInfo.name.replace(".css", "");
+            return assetInfo.name.includes("style.css")
+                ? `main[extname]`
+                : `css/${fileName}[extname]`;
+        }
+        return paths.assetFileNames + "/[name][extname]";
+    };
 
     // Using the mode parameter to control logic
     if (isDevelopmentEnv) {
@@ -32,16 +40,6 @@ export function dhtuGetViteConfigs(isDevelopmentEnv: boolean, tsFiles: Record<st
             }
 
             return "[name].js";
-        };
-
-        assetFileNames = (assetInfo) => {
-            if (assetInfo.name && assetInfo.name.endsWith(".css")) {
-                const fileName = assetInfo.name.replace(".css", "");
-                return assetInfo.name.includes("style.css")
-                    ? `main[extname]`
-                    : `css/${fileName}[extname]`;
-            }
-            return paths.assetFileNames + "/[name][extname]";
         };
 
     } else {
