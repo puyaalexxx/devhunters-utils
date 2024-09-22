@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "Utility functions for my plugins",
   "main": "dist/utils.js",
+  "types": "dts-files/utils.d.ts",
   "scripts": {
     "build": "tsc && find dist -name '*.js' -exec terser {} --compress --mangle --output {} \\;",
     "test": "echo \"Error: no test specified\" && exit 1"
