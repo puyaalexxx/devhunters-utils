@@ -1,0 +1,19 @@
+{
+  "name": "devhunters-utils",
+  "version": "1.0.0",
+  "description": "Utility functions for my plugins",
+  "main": "utils.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/puyaalexxx/devhunters-utils.git"
+  },
+  "author": "DevHunters",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/puyaalexxx/devhunters-utils/issues"
+  },
+  "homepage": "https://github.com/puyaalexxx/devhunters-utils#readme"
+}
