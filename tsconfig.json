@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "target": "es2020",
+    "module": "esnext",
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "sourceMap": false,
+    "esModuleInterop": true,
+  },
+  "include": [
+    "*.ts", // include all .ts files in the root directory
+    "utils/**/*" // include .ts files from the src folder if you have one
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

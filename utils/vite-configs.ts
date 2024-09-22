@@ -1,5 +1,4 @@
-// @ts-ignore
-import { ViteConfigOptions } from "@ts/types/fw-types";
+import { ViteConfigOptions } from "../types/types";
 
 /**
  * Get all file names and their paths
@@ -12,7 +11,7 @@ import { ViteConfigOptions } from "@ts/types/fw-types";
  *
  * @return
  */
-export function getViteConfigs(isDevelopmentEnv: boolean, tsFiles: Record<string, string>, pcssFiles: Record<string, string>, tsFilesSuffix: string, paths: ViteConfigOptions) {
+export function dhtuGetViteConfigs(isDevelopmentEnv: boolean, tsFiles: Record<string, string>, pcssFiles: Record<string, string>, tsFilesSuffix: string, paths: ViteConfigOptions) {
 
     let input: Record<string, string> = {};
     let manualChunks = {};

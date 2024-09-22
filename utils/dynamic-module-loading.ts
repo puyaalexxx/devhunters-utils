@@ -3,7 +3,7 @@
  *
  * @return void
  */
-export async function loadModule(modules: Record<string, () => Promise<unknown>>, fileName: string, fileExtension = "ts") {
+export async function dhtuLoadModule(modules: Record<string, () => Promise<unknown>>, fileName: string, fileExtension = "ts") {
     try {
         const searchModule = `/${fileName}.${fileExtension}`;
 

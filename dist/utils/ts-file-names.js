@@ -1,0 +1,1 @@
+export function dhtuGetTsFileNamesFromPaths(e){const t={};return Object.keys(e).forEach((e=>{const s=e.split("/"),c=s[s.length-1].replace(".ts",""),r=c.replace(/-/g,"_");t[r]=c})),t}

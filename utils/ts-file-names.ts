@@ -3,7 +3,7 @@
  *
  * @return Record<string, string>
  */
-export function getTsFileNamesFromPaths(allModules: Record<string, () => Promise<unknown>>) {
+export function dhtuGetTsFileNamesFromPaths(allModules: Record<string, () => Promise<unknown>>) {
 
     // Create an object with key-value pairs
     const tsFileNames: Record<string, string> = {};

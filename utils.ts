@@ -1,15 +1,4 @@
-// Import all functions from various utility files
-import { getFileEntries } from "./file-handlers";
-import { getViteConfigs } from "./vite-configs";
-import { getTsFileNamesFromPaths } from "./ts-file-names";
-import { loadModule } from "./dynamic-module-loading";
-
-// Group them under the Utils object
-const Utils = {
-    getFileEntries,
-    getViteConfigs,
-    getTsFileNamesFromPaths,
-    loadModule,
-};
-
-export default Utils;
+export { dhtuLoadModule } from './utils/dynamic-module-loading';
+export { dhtuGetFileEntries, dhtuFileExists, dhtuRemoveJsGeneratedFiles } from './utils/file-handlers';
+export { dhtuGetTsFileNamesFromPaths } from './utils/ts-file-names';
+export { dhtuGetViteConfigs } from './utils/vite-configs';
