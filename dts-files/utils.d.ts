@@ -1,5 +1,4 @@
-// Re-export everything from your utility functions
-export * from './utils/dynamic-module-loading';
-export * from './utils/file-handlers';
-export * from './utils/ts-file-names';
-export * from './utils/vite-configs';
+export * from './file-handlers.d.ts';
+export * from './dynamic-module-loading.d.ts';
+export * from './ts-file-names.d.ts';
+export * from './vite-config.d.ts';
