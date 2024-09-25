@@ -1,1 +1,1 @@
-export function dhtuGetTsFileNamesFromPaths(e){var t={};return Object.keys(e).forEach((function(e){var r=e.split("/"),a=r[r.length-1].replace(".ts",""),c=a.replace(/-/g,"_");t[c]=a})),t}
+export function dhtuGetTsFileNamesFromPaths(e){const t={};return Object.keys(e).forEach((e=>{const s=e.split("/"),c=s[s.length-1].replace(".ts",""),r=c.replace(/-/g,"_");t[r]=c})),t}
