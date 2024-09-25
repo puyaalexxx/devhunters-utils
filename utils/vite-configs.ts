@@ -3,7 +3,7 @@ import { ViteConfigOptions } from "../types/types";
 /**
  * Get all file names and their paths
  *
- * @param isDevelopmentEnv environment
+ * @param separateFiles Generate everything in one file if false or separate files 
  * @param tsFiles
  * @param pcssFiles
  * @param tsFilesSuffix
@@ -11,7 +11,7 @@ import { ViteConfigOptions } from "../types/types";
  *
  * @return
  */
-export function dhtuGetViteConfigs(isDevelopmentEnv: boolean, tsFiles: Record<string, string>, pcssFiles: Record<string, string>, tsFilesSuffix: string, paths: ViteConfigOptions) {
+export function dhtuGetViteConfigs(separateFiles: boolean, tsFiles: Record<string, string>, pcssFiles: Record<string, string>, tsFilesSuffix: string, paths: ViteConfigOptions) {
 
     let input: Record<string, string> = {};
     let manualChunks = {};
@@ -28,7 +28,7 @@ export function dhtuGetViteConfigs(isDevelopmentEnv: boolean, tsFiles: Record<st
     };
 
     // Using the mode parameter to control logic
-    if (isDevelopmentEnv) {
+    if (separateFiles) {
         input = {
             ...tsFiles,
             ...pcssFiles,
@@ -49,7 +49,7 @@ export function dhtuGetViteConfigs(isDevelopmentEnv: boolean, tsFiles: Record<st
         };
 
         manualChunks = (id: string) => {
-            if (id.includes(paths.tsChunks)) {
+            if (id.includes("assets/scripts/modules")) {
                 const parts = id.split(paths.tsChunks)[1].split("/");
 
                 //add the files to the js folder so they can be separately from the main file
