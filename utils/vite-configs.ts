@@ -42,6 +42,13 @@ export function dhtuGetViteConfigs(separateFiles: boolean, tsFiles: Record<strin
             return "[name].js";
         };
 
+        manualChunks = (id: string) => {
+            //this file us used by vite for dynamic loading
+            if (id.includes("preload-helper")) {
+                return `vite-helpers/preload-helper`;
+            }
+        };
+
     } else {
         input = {
             main: paths.mainEntry + "/main.ts",
