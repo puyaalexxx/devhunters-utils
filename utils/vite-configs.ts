@@ -17,6 +17,8 @@ export function dhtuGetViteConfigs(separateFiles: boolean, tsFiles: Record<strin
     let manualChunks = {};
     let cssCodeSplit = true;
     let entryFileNames: (chunkInfo: { name: string }) => string = () => "[name].js";
+
+    //css file generation helpe function
     let assetFileNames = (assetInfo: { name: string; }) => {
         if (assetInfo.name && assetInfo.name.endsWith(".css")) {
             const fileName = assetInfo.name.replace(".css", "");
@@ -26,6 +28,16 @@ export function dhtuGetViteConfigs(separateFiles: boolean, tsFiles: Record<strin
         }
         return paths.assetFileNames + "/[name][extname]";
     };
+
+    //helpers/node folder script generation function helper
+    let generateHelperFiles = (id : string) => {
+        // Extract the file name (without extension) from the id
+        const fileName = id.split('/').pop()?.replace(/\.(ts|js)$/, ''); // Remove both .ts and .js extensions
+
+        // Return the correct chunk name with .js for both .ts and .js files
+        return `js/${fileName}`;
+    };
+
 
     // Using the mode parameter to control logic
     if (separateFiles) {
@@ -47,6 +59,10 @@ export function dhtuGetViteConfigs(separateFiles: boolean, tsFiles: Record<strin
             if (id.includes("preload-helper")) {
                 return `vite-helpers/preload-helper`;
             }
+            //add js helper files from the helpers folder to js folder
+            else if (id.includes("helpers/node")) {
+                return generateHelperFiles(id);
+            }
         };
 
     } else {
@@ -63,6 +79,10 @@ export function dhtuGetViteConfigs(separateFiles: boolean, tsFiles: Record<strin
                 return parts.length > 1 ?
                     `js/${parts[parts.length - 1].replace(tsFilesSuffix, "").replace(".js", "").replace(".ts", "")}`
                     : `js/[name].js`;
+            }
+            //add js helper files from the helpers folder to js folder
+            else if (id.includes("helpers/node")) {
+                return generateHelperFiles(id);
             }
         };
 
