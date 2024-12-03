@@ -5,7 +5,7 @@
   "main": "dist/utils.js",
   "types": "dts-files/utils.d.ts",
   "scripts": {
-    "build": "tsc && node helpers/fix-js-imports.js && find dist -name '*.js' -exec terser {} --compress --mangle --output {} \\;",
+    "build": "tsc && node helpers/fix-js-imports.js && find dist -name '*.js'  \\;",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",

@@ -1,1 +1,62 @@
-export function dhtuGetViteConfigs(e,s,n,t,a){let l={},i={},r=!0,m=()=>"[name].js";return e?(l={...s,...n},m=e=>e.name.endsWith(t)?`js/${e.name.replace(t,"")}.js`:"[name].js",i=e=>{if(e.includes("preload-helper"))return"vite-helpers/preload-helper"}):(l={main:a.mainEntry+"/main.ts",...n},i=e=>{if(e.includes("assets/scripts/modules")){const s=e.split(a.tsChunks)[1].split("/");return s.length>1?`js/${s[s.length-1].replace(t,"").replace(".js","").replace(".ts","")}`:"js/[name].js"}},r=!1),{input:l,manualChunks:i,entryFileNames:m,assetFileNames:e=>{if(e.name&&e.name.endsWith(".css")){const s=e.name.replace(".css","");return e.name.includes("style.css")?"main[extname]":`css/${s}[extname]`}return a.assetFileNames+"/[name][extname]"},cssCodeSplit:r}}
+/**
+ * Get all file names and their paths
+ *
+ * @param separateFiles Generate everything in one file if false or separate files
+ * @param tsFiles
+ * @param pcssFiles
+ * @param tsFilesSuffix
+ * @param paths
+ *
+ * @return
+ */
+export function dhtuGetViteConfigs(separateFiles, tsFiles, pcssFiles, tsFilesSuffix, paths) {
+    let input = {};
+    let manualChunks = {};
+    let cssCodeSplit = true;
+    let entryFileNames = () => "[name].js";
+    let assetFileNames = (assetInfo) => {
+        if (assetInfo.name && assetInfo.name.endsWith(".css")) {
+            const fileName = assetInfo.name.replace(".css", "");
+            return assetInfo.name.includes("style.css")
+                ? `main[extname]`
+                : `css/${fileName}[extname]`;
+        }
+        return paths.assetFileNames + "/[name][extname]";
+    };
+    // Using the mode parameter to control logic
+    if (separateFiles) {
+        input = {
+            ...tsFiles,
+            ...pcssFiles,
+        };
+        entryFileNames = (chunkInfo) => {
+            if (chunkInfo.name.endsWith(tsFilesSuffix)) {
+                return `js/${chunkInfo.name.replace(tsFilesSuffix, "")}.js`;
+            }
+            return "[name].js";
+        };
+        manualChunks = (id) => {
+            //this file us used by vite for dynamic loading
+            if (id.includes("preload-helper")) {
+                return `vite-helpers/preload-helper`;
+            }
+        };
+    }
+    else {
+        input = {
+            main: paths.mainEntry + "/main.ts",
+            ...pcssFiles,
+        };
+        manualChunks = (id) => {
+            if (id.includes("assets/scripts/modules")) {
+                const parts = id.split(paths.tsChunks)[1].split("/");
+                //add the files to the js folder so they can be separately from the main file
+                return parts.length > 1 ?
+                    `js/${parts[parts.length - 1].replace(tsFilesSuffix, "").replace(".js", "").replace(".ts", "")}`
+                    : `js/[name].js`;
+            }
+        };
+        cssCodeSplit = false; // Ensure CSS is bundled into a single file
+    }
+    return { input, manualChunks, entryFileNames, assetFileNames, cssCodeSplit };
+}
