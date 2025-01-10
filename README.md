@@ -1,5 +1,5 @@
 # DevHunters Utils npm package
-**Version 1.0.7**
+**Version 1.0.8**
 
 **Package used in my DevHunters Framework to add some utility functions**
 
