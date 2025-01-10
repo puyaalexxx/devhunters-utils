@@ -6,18 +6,17 @@
 
 - **`git clone https://github.com/puyaalexxx/devhunters-utils.git`**
 - make the changes
-- run **`npm run build`**
+- update the **`package.json`** version - optional
+- **`npm update --save`** - `optional` - to update the packages versions and the package-lock.json
+- run **`npm run build`** - compile the ts files to js files
 - commit the changes
+  - `git status`
+  - `git add --all`
+  - `git commit -m "commit message"`
+  - `git push origin main`
+
 
  In the devhunters folder run this command to update the package version:
 - **`npm update devhunters-utils`**
 
-==================================
-
-If you want to update the package version:
-- update the **`package.json`** version
-- **`npm update --save`** - to update the package version 
-- commit the changes
-
- In the devhunters folder run:
-- **`npm install`**
+When installing all packages in the devhunters folder, the latest package version will be installed by default.
