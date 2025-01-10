@@ -1,6 +1,6 @@
 {
   "name": "devhunters-utils",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Utility functions for my plugins",
   "main": "dist/utils.js",
   "types": "dts-files/utils.d.ts",
