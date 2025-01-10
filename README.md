@@ -1,13 +1,16 @@
 # devhunters utils npm package
-**Version 1.0.4**
+**Version 1.0.7**
 
-**Package used in my plugin to add some utility functions
+**Package used in my DevHunters Framework to add some utility functions
 
 #### How to use:
 
-- git clone https://github.com/puyaalexxx/devhunters-utils.git
+- **`git clone https://github.com/puyaalexxx/devhunters-utils.git`**
 - make the changes
-- change package.json version
-- npm run build
+- change the **`package.json`** version
+- change **`README.MD`** version
+- run **`npm run build`**
 - commit the changes
-- npm update devhunters-utils - in the devhunters folder
+
+ In the devhunters folder run this command toi update the package version:
+- **`npm update devhunters-utils`**
