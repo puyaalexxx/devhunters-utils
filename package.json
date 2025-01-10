@@ -20,9 +20,9 @@
   },
   "homepage": "https://github.com/puyaalexxx/devhunters-utils#readme",
   "devDependencies": {
-    "@types/node": "^22.5.5",
-    "glob": "^11.0.0",
-    "terser": "^5.33.0",
-    "typescript": "^5.6.2"
+    "@types/node": "^22.10.5",
+    "glob": "^11.0.1",
+    "terser": "^5.37.0",
+    "typescript": "^5.7.3"
   }
 }
