@@ -60,7 +60,7 @@ export function dhtuGetViteConfigs(separateFiles: boolean, tsFiles: Record<strin
                 return `vite-helpers/preload-helper`;
             }
             //add js helper files from the helpers folder to js folder
-            else if (id.includes("helpers/node")) {
+            else if (id.includes("assets/scripts/helpers")) {
                 return generateHelperFiles(id);
             }
         };
